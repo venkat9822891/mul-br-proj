@@ -1,11 +1,11 @@
 node {
-    stage('Cont.Downloads') {
+    stage('Cont.Download') {
     git 'https://github.com/venkat9822891/new-proj.git'
                            }
-    stage('Cont.Builds') {
+    stage('Cont.Build') {
     sh 'mvn package'
                         }
-    stage('Cont.Deployments') {
+    stage('Cont.Deployment') {
     deploy adapters: [tomcat8(credentialsId: '9f73153b-925c-462c-9a0e-75f094b1ca02', path: '', url: 'http://43.204.107.33:8080/')], contextPath: '/dev-icici', war: '**/*.war'
                           }
 }
